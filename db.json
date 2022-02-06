@@ -1,0 +1,25 @@
+{
+    "products": [
+      {
+        "id": 1,
+        "name": "Tier 1",
+        "image": "http://www.pngmart.com/files/3/Toy-Story-Woody-PNG-Photos.png",
+        "price": 150,
+        "likes":0
+      },
+      {
+        "id": 2,
+        "name": "Tier 2",
+        "image": "http://www.pngmart.com/files/6/Buzz-Lightyear-PNG-Transparent-Picture.png",
+        "price": 195,
+        "likes": 0
+      },
+      {
+        "id": 3,
+        "name": "Tier 3",
+        "image": "https://vignette.wikia.nocookie.net/universe-of-smash-bros-lawl/images/d/d8/Mr-potato-head-toy-story.gif/revision/latest?cb=20151129131217",
+        "price": 250,
+        "likes": 0
+      }]
+}
+    
