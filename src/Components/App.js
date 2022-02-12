@@ -1,15 +1,27 @@
-import React from "react"
+import React, { useEffect, useState} from "react"
 import { Route, Switch } from "react-router-dom"
 import NavBar from "./NavBar";
 import About from "./About";
 import Contact from "./Contact"
 import Home from "./Home"
-import Products from "./Products";
+import ProductsList from "./ProductsList";
+import ProductShow from "./ProductShow"
+
 
 function App() {
+ const [products, setProducts] = useState([])
+
+ useEffect(() => {
+   const fetchProducts = async () => {
+     const response = await fetch('http://localhost:3000/products')
+     const data = await response.json()
+     setProducts(data)
+   }
+
+   fetchProducts()
+ }, [])
   return (
-    <div>
-      <h1>Fresh Look Details!</h1>
+    <div id="nav a">
       <NavBar />
         <Switch>
             <Route exact path="/about">
@@ -17,14 +29,18 @@ function App() {
             </Route>
 
             <Route exact path="/products">
-              <Products />
+              <ProductsList products={ products } />
+            </Route>
+
+            <Route exact path="/products/:id">
+              <ProductShow />
             </Route>
 
             <Route exact path="/contact">
                 <Contact />
             </Route>
 
-            <Route exact path="/products">
+            <Route exact path="/">
                 <Home />
             </Route>
         </Switch>
