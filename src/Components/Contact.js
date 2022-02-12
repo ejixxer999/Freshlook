@@ -9,19 +9,27 @@ function Contact() {
     const [describe, setDescribe] = useState("")
 
     function handleFirstNameChange(event) {
+        event.preventDefault()
         setFirstName(event.target.value)
     }
 
     function handleLastNameChange(event){
+        event.preventDefault()
         setLastName(event.target.value)
     }
 
     function handleEmailChange(event){
+        event.preventDefault()
         setEmailAdd(event.target.value)
     }
 
     function handleDescribeChange(event){
+        event.preventDefault()
         setDescribe(event.target.value)
+    }
+
+    function handleSubmit(){
+        
     }
 
     return(
