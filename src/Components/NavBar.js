@@ -101,7 +101,8 @@ const NavBar = () => {
           
           
           <Button color="inherit" component={ Link } to="/products" exact>Products</Button>
-          
+
+          <Button color="inherit" component={ Link } to="/reviews" exact>Reviews</Button>
           
         </Toolbar>
         </Container>
