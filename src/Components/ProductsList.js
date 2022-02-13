@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import ProductCard from "./ProductCard";
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
-import { Link } from 'react-router-dom'
+
 
 
 
@@ -20,8 +20,10 @@ const useStyles = makeStyles((theme) => ({
 
 function ProductsList({ products }) {
     const classes = useStyles();
-    const productCards = products.map(product => 
-        
+
+
+
+    const productCards = products.map(product =>
     <ProductCard key={ product.id } product={ product } /> 
     )
    
@@ -31,6 +33,8 @@ function ProductsList({ products }) {
        { productCards }
       </List>
       </div>
+
+      
     )
 }
 
