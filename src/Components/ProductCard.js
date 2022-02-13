@@ -1,7 +1,6 @@
 import React from "react";
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import ProductShow from "./ProductShow";
 import { Route, useRouteMatch } from "react-router-dom"
 
 function ProductCard({ product }) {
@@ -14,14 +13,9 @@ function ProductCard({ product }) {
     return(
       <div>
          <ListItem button>
-          <ListItemText primary={ product.name } secondary={product.price} />
+          <ListItemText primary={ product.name } secondary={product.price}
+          />
         </ListItem>
-
-        <Route path={ `${match.url}/:productId`} >
-          <ProductShow />
-        </Route>
-
-
       </div>
     )
 
