@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ReviewCard from "./ReviewCard";
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
+import ReviewForm from "./ReviewForm";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -11,52 +12,33 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ReviewsList = ({ reviews }) => {
-  const [firstname, setFirstName] = useState("")
-    const [service, setService] = useState("")
-    const [content, setContent] = useState("")
+const ReviewsList = () => {
+  const [reviews, setReviews] = useState([])
     const classes = useStyles();
 
-  function handleNameChange(event){
-    event.preventDefault()
-    setFirstName(event.target.value)
-}
-function handleServiceChange(event){
-    event.preventDefault()
-    setService(event.target.value)
-}
-function handleContentChange(event){
-    event.preventDefault()
-    setContent(event.target.value)
-}
-
-function handleSubmit(e){
-  e.preventDefault()
-
-}
+  useEffect(() => {
+    const fetchReviews = async () => {
+      const response = await fetch('http://localhost:3000/Reviews')
+      const data = await response.json()
+        setReviews(data)
+      }
+      fetchReviews()
+    }, [])
 
   const reviewCards = reviews.map(review =>
     <ReviewCard key={ review.id } review={ review } /> 
     )
 
+
   return (
     <div>
-   <List component="nav" aria-label="secondary mailbox folders">
-    { reviewCards }
-   </List>
-   <br/> 
+      <List component="nav" aria-label="secondary mailbox folders">
+        { reviewCards }
+      </List>
+        <br/> 
       <h2>Leave a Review</h2>
-      <form onSubmit={handleSubmit}>
-          <input type="text" onChange={handleNameChange} value={firstname} placeholder="firstname" />
-          <br/>
-          <input type="text" onChange={handleServiceChange} value={service} placeholder="type of service" />
-          <br/>
-          <textarea type="text" onChange={handleContentChange} value={content} placeholder="write you review here" />
-          <br/>
-          <button type="submit">Submit</button>
-          
-      </form>
-   </div>
+      <ReviewForm />
+    </div>
   )
 }
 
