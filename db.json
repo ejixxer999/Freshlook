@@ -4,22 +4,32 @@
         "id": 1,
         "name": "Tier 1",
         "description": "good",
-        "price": 150,
+        "price": "$150",
         "likes":0
       },
       {
         "id": 2,
         "name": "Tier 2",
         "description": "better",
-        "price": 195,
+        "price": "$195",
         "likes": 0
       },
       {
         "id": 3,
         "name": "Tier 3",
         "description": "the best",
-        "price": 250,
+        "price": "$250",
         "likes": 0
-      }]
+      }],
+      "Reviews": [
+        {
+          "id": 1,
+          "firstName": "Bob",
+          "service": "teir 1",
+          "content": "it was good"
+          
+
+        }
+      ]
 }
     
