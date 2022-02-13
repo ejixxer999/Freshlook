@@ -5,11 +5,12 @@ import About from "./About";
 import Contact from "./Contact"
 import Home from "./Home"
 import ProductsList from "./ProductsList";
-import ProductShow from "./ProductShow"
+import ReviewsList from "./ReviewsList";
 
 
 function App() {
  const [products, setProducts] = useState([])
+ const [reviews, setReviews] = useState([])
 
  useEffect(() => {
    const fetchProducts = async () => {
@@ -17,9 +18,19 @@ function App() {
      const data = await response.json()
      setProducts(data)
    }
-
+   
    fetchProducts()
- }, [])
+  }, [])
+
+  useEffect(() => {
+    const fetchReviews = async () => {
+      const response = await fetch('http://localhost:3000/Reviews')
+      const data = await response.json()
+      setReviews(data)
+    }
+    fetchReviews()
+  }, [])
+ 
   return (
     <div id="nav a">
       <NavBar />
@@ -32,8 +43,8 @@ function App() {
               <ProductsList products={ products } />
             </Route>
 
-            <Route exact path="/products/:id">
-              <ProductShow />
+            <Route exact path="/reviews">
+              <ReviewsList reviews={ reviews } />
             </Route>
 
             <Route exact path="/contact">
