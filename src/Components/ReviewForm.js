@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const ReviewForm = () => {
+const ReviewForm = ({ reviews, setReviews }) => {
     const [firstname, setFirstName] = useState("")
     const [service, setService] = useState("")
     const [content, setContent] = useState("")
@@ -19,15 +19,19 @@ const ReviewForm = () => {
     }
     
     function handleAddReview(newReview) {
-      
     }
     function handleSubmit(e){
         e.preventDefault()
         const reviewData = {
-          fisrtName: firstname,
-          service: service,
-          content: content
+            fisrtName: firstname,
+            service: service,
+            content: content
         }
+        const newReview = [...reviews, reviewData]
+        setReviews(newReview)
+        setFirstName("")
+        setService("")
+        setContent("")
         fetch("http://localhost:3000/reviews", {
           method: "POST",
           headers: {
