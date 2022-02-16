@@ -37,7 +37,7 @@ const ReviewsList = () => {
       </List>
         <br/> 
       <h2>Leave a Review</h2>
-      <ReviewForm />
+      <ReviewForm reviews={reviews} setReviews={setReviews} />
     </div>
   )
 }
