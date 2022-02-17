@@ -6,7 +6,7 @@ const ReviewCard = ({ review }) => {
   return (
     <div>
     <ListItem button>
-        <ListItemText primary={ review.firstName } secondary={review.service} />
+        <ListItemText primary={ review.service } secondary={review.content}/>
   </ListItem>
   </div>
   )
