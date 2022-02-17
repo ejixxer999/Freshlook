@@ -18,8 +18,7 @@ const ReviewForm = ({ reviews, setReviews }) => {
         setContent(event.target.value)
     }
     
-    function handleAddReview(newReview) {
-    }
+    
     function handleSubmit(e){
         e.preventDefault()
         const reviewData = {
@@ -39,8 +38,7 @@ const ReviewForm = ({ reviews, setReviews }) => {
           },
           body: JSON.stringify(reviewData),
         })
-        .then((r) => r.json())
-        .then((newReview) => handleAddReview(newReview))
+        
         
       
       }
